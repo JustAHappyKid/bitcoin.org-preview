@@ -204,17 +204,7 @@ active: true
 date: 2017-03-11
 ---
 
-{% comment %}
-First paragraph should indicate whose bitcoins are safe, to avoid starting a panic.
-{% comment %}
-
 Your bitcoins are safe if you received them in transactions confirmed before 2015-07-06 00:00 UTC.
-
-{% comment %}
-Second paragraph should summarize the problem, and subsequent
-text should indicate what people should do immediately.
-Consider: users (by wallet type), merchants, and miners.
-{% comment %}
 
 However, there has been a problem with a planned upgrade. For
 bitcoins received later than the time above, confirmation scores are
