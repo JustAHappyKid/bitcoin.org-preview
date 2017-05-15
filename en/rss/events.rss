@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<!-- Note: this file is built non-deterministically -->
+<channel>
+	<title>Bitcoin conferences and events</title>
+	<link>https://bitcoin.org/en/events</link>
+	<description>This RSS feed allows to follow Bitcoin events and conferences.</description>
+	<image>
+		<title>Bitcoin conferences and events</title>
+		<url>https://bitcoin.org/img/icons/logo_rss.png</url>
+		<link>https://bitcoin.org/en/events</link>
+	</image>
+        
+	
+        <item>
+            <title>Oral Arguments on the Status of the Bitlicense in New York, New York - United States</title>
+            <link>https://www.meetup.com/Article-78-Against-NYDFS/events/238795106</link>
+            <guid>https://www.meetup.com/Article-78-Against-NYDFS/events/238795106</guid>
+            <pubDate>Thu, 04 May 2017 00:00:00 GMT</pubDate>
+        </item>
+	
+        <item>
+            <title>The Blockchain NZ 2017, Auckland - New Zealand</title>
+            <link>http://www.theblockchain.nz/</link>
+            <guid>http://www.theblockchain.nz/</guid>
+            <pubDate>Mon, 08 May 2017 00:00:00 GMT</pubDate>
+        </item>
+	
+        <item>
+            <title>Bitcoin Conference Prague, Prague - Czech Republic</title>
+            <link>https://bitcoinconf.eu/en</link>
+            <guid>https://bitcoinconf.eu/en</guid>
+            <pubDate>Fri, 19 May 2017 00:00:00 GMT</pubDate>
+        </item>
+	
+        <item>
+            <title>Consensus 2017, New York - United States</title>
+            <link>http://www.coindesk.com/events/consensus-2017/</link>
+            <guid>http://www.coindesk.com/events/consensus-2017/</guid>
+            <pubDate>Mon, 22 May 2017 00:00:00 GMT</pubDate>
+        </item>
+	
+        <item>
+            <title>Blockchain Cruise 2017, Bayonne - United States</title>
+            <link>https://coinsbank.com/cruise</link>
+            <guid>https://coinsbank.com/cruise</guid>
+            <pubDate>Wed, 24 May 2017 00:00:00 GMT</pubDate>
+        </item>
+	
+        <item>
+            <title>Blockchain Expo Europe, Berlin - Germany</title>
+            <link>http://www.blockchain-expo.com/europe</link>
+            <guid>http://www.blockchain-expo.com/europe</guid>
+            <pubDate>Thu, 01 Jun 2017 00:00:00 GMT</pubDate>
+        </item>
+	
+        <item>
+            <title>Money 2020 Europe, Copenhagen - Denmark</title>
+            <link>https://www.money2020europe.com/</link>
+            <guid>https://www.money2020europe.com/</guid>
+            <pubDate>Mon, 26 Jun 2017 00:00:00 GMT</pubDate>
+        </item>
+	
+        <item>
+            <title>Future of Fintech, New York - United States</title>
+            <link>http://events.cbinsights.com/future-of-fintech</link>
+            <guid>http://events.cbinsights.com/future-of-fintech</guid>
+            <pubDate>Tue, 27 Jun 2017 00:00:00 GMT</pubDate>
+        </item>
+	
+        <item>
+            <title>London Fintech Week, London - United Kingdom</title>
+            <link>https://fintechweek.com/</link>
+            <guid>https://fintechweek.com/</guid>
+            <pubDate>Fri, 07 Jul 2017 00:00:00 GMT</pubDate>
+        </item>
+	
+        <item>
+            <title>Bitcoin Conference Kiev, Kiev - Ukraine</title>
+            <link>https://bitcoinconf.com.ua/en</link>
+            <guid>https://bitcoinconf.com.ua/en</guid>
+            <pubDate>Sat, 23 Sep 2017 00:00:00 GMT</pubDate>
+        </item>
+	
+        <item>
+            <title>Blockchain Expo, Santa Clara - United States</title>
+            <link>http://blockchain-expo.com/northamerica/</link>
+            <guid>http://blockchain-expo.com/northamerica/</guid>
+            <pubDate>Wed, 29 Nov 2017 00:00:00 GMT</pubDate>
+        </item>
+	
+</channel>
+</rss>

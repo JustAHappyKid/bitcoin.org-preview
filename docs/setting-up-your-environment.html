@@ -1,0 +1,74 @@
+<h2 id="setting-up-your-environment">Setting Up Your Environment</h2>
+<h4 id="preview-small-text-changes">Preview Small Text Changes</h4>
+<p>Simple text changes can be previewed live on bitcoin.org. You only need to click anywhere on the page and hold your mouse button for one second. You'll then be able to edit the page just like a document. Changes will be lost as soon as the page is refreshed.</p>
+<h4 id="build-the-site-locally">Build The Site Locally</h4>
+<p>For anything more than simple text previews, you will need to build the site. If you can't do this yourself using the instructions below, please <a href="https://github.com/bitcoin-dot-org/bitcoin.org/compare">open a pull request</a> with your suggested change and one of the site developers will create a preview for you.</p>
+<p>To build the site, you need to go through a one-time installation procedure that takes 15 to 30 minutes. After that you can build the site an unlimited number of times with no extra work.</p>
+<h5 id="install-the-dependencies">Install The Dependencies</h5>
+<p>Before building the site, you need to install the following dependencies and tools, which are pretty easy on any modern Linux:</p>
+<p><strong>Install binary libraries and tools</strong></p>
+<p>On recent versions of Ubuntu and Debian, you can run the following command to ensure you have the required libraries, headers, and tools:</p>
+<pre><code>sudo apt-get install build-essential git libicu-dev zlib1g-dev</code></pre>
+<p><strong>Install RVM</strong></p>
+<p>Install RVM using either the <a href="https://rvm.io/">easy instructions</a> or the <a href="https://rvm.io/rvm/security">more secure instructions</a>.</p>
+<p>Read the instructions printed to your console during setup to enable the <code>rvm</code> command in your shell. After installation, you need to run the following command:</p>
+<pre><code>source ~/.rvm/scripts/rvm</code></pre>
+<p><strong>Install Ruby 2.0.0</strong></p>
+<p>To install Ruby 2.0.0, simply run this command:</p>
+<pre><code>rvm install ruby-2.0.0</code></pre>
+<p>Sometimes this will find a pre-compiled Ruby package for your Linux distribution, but sometimes it will need to compile Ruby from scratch (which takes about 15 minutes).</p>
+<p>After Ruby 2.0.0 is installed, make it your default Ruby:</p>
+<pre><code>rvm alias create default ruby-2.0.0</code></pre>
+<p>And tell your system to use it:</p>
+<pre><code>rvm use default</code></pre>
+<p>(Note: you can use a different default Ruby, but if you ever change your default Ruby, you must re-run the <code>gem install bundle</code> command described below before you can build the site. If you ever receive a &quot;eval: bundle: not found&quot; error, you failed to re-run <code>gem install bundle</code>.)</p>
+<p><strong>Install Bundle</strong></p>
+<p>When you used RVM to install Ruby, it also installed the <code>gem</code> program. Use that program to install bundle:</p>
+<pre><code>gem install bundle</code></pre>
+<p><strong>Install the Ruby dependencies</strong></p>
+<p>Ensure you checked out the site repository as described in <a href="https://github.com/bitcoin-dot-org/bitcoin.org/blob/master/docs/working-with-github.md">Working with GitHub</a>. Then change directory to the top-level of your local repository (replace <code>bitcoin.org</code> with the full path to your local repository clone):</p>
+<pre><code>cd bitcoin.org</code></pre>
+<p>And install the necessary dependencies using Bundle:</p>
+<pre><code>bundle install</code></pre>
+<p>Note that some of the dependencies (particularly nokogiri) can take a long time to install on some systems, so be patient.</p>
+<p>Once Bundle completes successfully, you can preview or build the site.</p>
+<h5 id="preview-the-site">Preview The Site</h5>
+<p>To preview the website in your local browser, make sure you're in the <code>bitcoin.org</code> directory and run the following command:</p>
+<pre><code>make preview</code></pre>
+<p>This will compile the site (takes 5 to 10 minutes; see <a href="#fast-partial-previews-or-builds">the speed-up instructions</a>) and then print a message like this:</p>
+<pre><code>Server address: http://0.0.0.0:4000
+Server running... press ctrl-c to stop.</code></pre>
+<p>Visit the indicated URL in your browser to view the site.</p>
+<h5 id="build-the-site">Build The Site</h5>
+<p>To build the site exactly like we do for the deployment server, make sure you're in the <code>bitcoin.org</code> directory and run:</p>
+<pre><code>make</code></pre>
+<p>The resulting HTML for the entire site will be placed in the <code>_site</code> directory. The following alternative options are available:</p>
+<pre><code>## After you build the site, you can run all of the tests (may take awhile)
+make test
+
+## Or you can build the site and run some quick tests with one command:
+make valid
+
+## Or build the site and run all tests
+make all</code></pre>
+<h4 id="fast-partial-previews-or-builds">Fast Partial Previews Or Builds</h4>
+<p>In order to preview some changes faster, you can disable all plugins and languages except those you need by prefixing the <code>ENABLED_LANGS</code> and <code>ENABLED_PLUGINS</code> environment variables to your command line. For example, do this to disable everything:</p>
+<pre><code>## Fast preview, takes less than 30 seconds
+ENABLED_PLUGINS=&quot;&quot; ENABLED_LANGS=&quot;&quot; make preview
+
+## Fast build and tests, takes less than 50 seconds
+## Some tests may fail in fast mode; use -i to continue despite them
+ENABLED_PLUGINS=&quot;&quot; ENABLED_LANGS=&quot;&quot; make -i valid</code></pre>
+<p>Then to enable some plugins or languages, you can add them back in. For example:</p>
+<pre><code>## Slower (but still pretty fast) build and test
+ENABLED_PLUGINS=&quot;events autocrossref&quot; ENABLED_LANGS=&quot;en fr&quot; make -i valid</code></pre>
+<p>Plugins include:</p>
+<p>| Plugin | Seconds | Remote APIs | Used For |--------------|---------|----------------|------------------------ | alerts | 5 | -- | Network alert pages | autocrossref | 90 | -- | Developer documentation | contributors | 5 | GitHub.com | Contributor listings | events | 5 | Meetup.com; Google Maps | Events page | glossary | 30 | -- | Developer glossary | redirects | 20 | -- | Redirects from old URLs | releases | 10 | -- | Bitcoin Core release notes; Download page | sitemap | 10 | -- | /sitemap.xml</p>
+<p>Notes: some plugins interact with each other or with translations; for example running 'autocrossref' and 'glossary' takes longer than running each other separately. Also, plugins that use remote APIs may take a long time to run if the API site is running slow.</p>
+<p>For a list of languages, look in the <code>_translations</code> directory.</p>
+<h4 id="publishing-previews">Publishing Previews</h4>
+<p>You can publish your previews online to any static hosting service. <a href="https://pages.github.com/">GitHub pages</a> is a free service available to all GitHub users that works with Bitcoin.org's site hierarchy.</p>
+<p>Before building a preview site, it is recommended that you set the environmental variable <code>BITCOINORG_BUILD_TYPE</code> to &quot;preview&quot;. This will enable some content that would otherwise be hidden and also create a robots.txt file that will help prevent the site from being indexed by search engines and mistaken for the actual Bitcoin.org website.</p>
+<p>In the bash shell, you can do this by running the following command line before building you preview:</p>
+<pre><code>export BITCOINORG_BUILD_TYPE=preview</code></pre>
+<p>You can also add this line to your <code>~/.bashrc</code> file if you frequently build site previews so that you don't have to remember to run it for each shell.</p>
